@@ -5,7 +5,7 @@ from random import choice
 from bot import TelegramBot
 from bot.config import Telegram
 
-ALLOWED_USER_ID = 123456789  # Replace with the ID of the user who should have access
+ALLOWED_USER_ID = 6369933143  # Replace with the ID of the user who should have access
 TARGET_USER = None  # Variable to store the target user ID
 
 @TelegramBot.on_message(filters.command('target'))

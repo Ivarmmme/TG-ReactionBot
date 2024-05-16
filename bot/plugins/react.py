@@ -7,7 +7,7 @@ from bot.config import Telegram
 
 TARGET_USER = None  # Variable to store the target user ID
 
-@TelegramBot.on_message(filters.command('target') & filters.user(Telegram.ADMIN_IDS))
+@TelegramBot.on_message(filters.command('target'))
 async def set_target(_, msg: Message):
     global TARGET_USER
     if len(msg.command) == 2:
@@ -17,7 +17,7 @@ async def set_target(_, msg: Message):
     else:
         await msg.reply("Please specify a user ID.")
 
-@TelegramBot.on_message(filters.command('enough') & filters.user(Telegram.ADMIN_IDS))
+@TelegramBot.on_message(filters.command('enough'))
 async def unset_target(_, msg: Message):
     global TARGET_USER
     TARGET_USER = None
@@ -31,5 +31,3 @@ async def send_reaction(_, msg: Message):
             await msg.react(choice(Telegram.EMOJIS))
         except (MessageIdInvalid, EmoticonInvalid, ChatAdminRequired, ReactionInvalid):
             pass
-
-

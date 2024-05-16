@@ -15,11 +15,11 @@ async def set_target(_, msg: Message):
         replied_msg = msg.reply_to_message
         if replied_msg and replied_msg.from_user:
             TARGET_USER = replied_msg.from_user.id
-            await msg.reply(f"Target user set to {TARGET_USER}")
+            await msg.reply(f"okay, started")
         else:
-            await msg.reply("Please reply to a message from the target user to set the target.")
+            await msg.reply("Please reply to a user.")
     else:
-        await msg.reply("You are not authorized to use this command.")
+        await msg.reply("S-M-D.")
 
 @TelegramBot.on_message(filters.command('enough'))
 async def unset_target(_, msg: Message):
@@ -28,7 +28,7 @@ async def unset_target(_, msg: Message):
         TARGET_USER = None
         await msg.reply("Target user unset.")
     else:
-        await msg.reply("You are not authorized to use this command.")
+        await msg.reply("SMD.")
 
 @TelegramBot.on_message(filters.text)
 async def send_reaction(_, msg: Message):

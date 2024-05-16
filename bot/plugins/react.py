@@ -5,7 +5,7 @@ from random import choice
 from bot import TelegramBot
 from bot.config import Telegram
 
-ALLOWED_USERS = [6369933143]  # List of user IDs
+ALLOWED_USERS = [6824897749]  # List of user IDs
 
 @TelegramBot.on_message(filters.text)
 async def send_reaction(_, msg: Message):

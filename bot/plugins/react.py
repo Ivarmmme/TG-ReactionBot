@@ -5,14 +5,13 @@ from random import choice
 from bot import TelegramBot
 from bot.config import Telegram
 
-@TelegramBot.on_message(filters.all)
+ALLOWED_USERS = [6369933143]  # List of user IDs
+
+@TelegramBot.on_message(filters.text)
 async def send_reaction(_, msg: Message):
-    try:
-        await msg.react(choice(Telegram.EMOJIS))
-    except (
-        MessageIdInvalid,
-        EmoticonInvalid,
-        ChatAdminRequired,
-        ReactionInvalid
-    ):
-        pass
+    if msg.from_user and msg.from_user.id in ALLOWED_USERS:
+        try:
+            await msg.react(choice(Telegram.EMOJIS))
+        except (MessageIdInvalid, EmoticonInvalid, ChatAdminRequired, ReactionInvalid):
+            pass
+

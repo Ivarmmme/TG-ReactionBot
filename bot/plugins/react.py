@@ -19,7 +19,7 @@ async def set_target(_, msg: Message):
         else:
             await msg.reply("Please reply to a user.")
     else:
-        await msg.reply("S-M-D.")
+        await msg.reply("shut up nigga.")
 
 @TelegramBot.on_message(filters.command('enough'))
 async def unset_target(_, msg: Message):

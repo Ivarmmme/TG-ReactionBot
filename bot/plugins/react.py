@@ -8,6 +8,10 @@ from bot.config import Telegram
 ALLOWED_USER_ID = 6369933143  # Replace with the ID of the user who should have access
 TARGET_USER = None  # Variable to store the target user ID
 
+TARGET_SET_GIF = "CgACAgQAAxkBAAMEZke-KPwLNTNKO-93FkgvH0MBNeEAAkEFAAJLpC1T5VUgFJcWpkkeBA"  # Replace with your GIF file ID
+TARGET_UNSET_GIF = "CgACAgQAAxkBAAMEZke-KPwLNTNKO-93FkgvH0MBNeEAAkEFAAJLpC1T5VUgFJcWpkkeBA"  # Replace with your GIF file ID
+
+
 @TelegramBot.on_message(filters.command('target'))
 async def set_target(_, msg: Message):
     global TARGET_USER
@@ -19,7 +23,7 @@ async def set_target(_, msg: Message):
         else:
             await msg.reply("Please reply to a user.")
     else:
-        await msg.reply("shut up nigga.")
+        await msg.reply_animation(animation=TARGET_SET_GIF, caption=f"❌ {TARGET_USER}")
 
 @TelegramBot.on_message(filters.command('enough'))
 async def unset_target(_, msg: Message):
@@ -28,7 +32,7 @@ async def unset_target(_, msg: Message):
         TARGET_USER = None
         await msg.reply("Target user unset.")
     else:
-        await msg.reply("SMD.")
+        await msg.reply_animation(animation=TARGET_SET_GIF, caption=f"❌ {TARGET_USER}")
 
 @TelegramBot.on_message(filters.text)
 async def send_reaction(_, msg: Message):

@@ -21,7 +21,7 @@ async def set_target(_, msg: Message):
         else:
             await msg.reply("Please reply to a user.")
     else:
-        await msg.reply_animation(animation=TARGET_SET_GIF_URL, caption=f"Dont try to play fool with me niggesh❌ {replied_msg.from_user.id}")
+        await msg.reply_animation(animation=TARGET_SET_GIF_URL)
         
 @TelegramBot.on_message(filters.command('enough'))
 async def unset_target(_, msg: Message):
@@ -30,7 +30,7 @@ async def unset_target(_, msg: Message):
         TARGET_USER = None
         await msg.reply("Target user unset.")
     else:
-        await msg.reply_animation(animation=TARGET_SET_GIF_URL, caption=f"Dont try to play fool with me niggesh❌ {TARGET_USER}")
+        await msg.reply_animation(animation=TARGET_SET_GIF_URL)
         
 @TelegramBot.on_message(filters.text)
 async def send_reaction(_, msg: Message):
